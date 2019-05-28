@@ -1,0 +1,139 @@
+
+_________________________________________________________
+Tests for Realtor Functionality
+Tests to create three types of listings with names
+
+[1]<Login As New Buyer> [2]<Login As New Realtor> [3]<Quit>
+[1]<View Available Listings> [2]<Add Listing> [3]<Remove Listing> [4]<Select Listing> [5]<Logout> [6]<Quit>
+Listing Name: Price: Size: Year built: Space separated ratings out of 5 (ex: 5 3 2 0 2): Lisitng type: [r]<Rent> [h]<Hotel> [p]<Purchase>: [1]<View Available Listings> [2]<Add Listing> [3]<Remove Listing> [4]<Select Listing> [5]<Logout> [6]<Quit>
+Listing Name: Price: Size: Year built: Space separated ratings out of 5 (ex: 5 3 2 0 2): Lisitng type: [r]<Rent> [h]<Hotel> [p]<Purchase>: [1]<View Available Listings> [2]<Add Listing> [3]<Remove Listing> [4]<Select Listing> [5]<Logout> [6]<Quit>
+Listing Name: Price: Size: Year built: Space separated ratings out of 5 (ex: 5 3 2 0 2): Lisitng type: [r]<Rent> [h]<Hotel> [p]<Purchase>: [1]<View Available Listings> [2]<Add Listing> [3]<Remove Listing> [4]<Select Listing> [5]<Logout> [6]<Quit>
+Sorting Options: [p]<Price> [s]<Size/Square Feet> [y]<Year Built> [r]<Average Ratings>
+Displaying sorted by price.
+1. Totato House | Listing for Purchase
+$45.0 | 40.0 sqr feet | Built 932 | 2.4 ratings on average
+2. Motato House | Hotel
+$35.0 | 30.0 sqr feet | Built 2932 | 2.2 ratings on average
+3. Potato House | Rent Listing
+$25.0 | 20.0 sqr feet | Built 1932 | 3.0 ratings on average
+
+__________________________________________________________
+Sort by all the various types possible when viewing listings
+
+
+[1]<View Available Listings> [2]<Add Listing> [3]<Remove Listing> [4]<Select Listing> [5]<Logout> [6]<Quit>
+Sorting Options: [p]<Price> [s]<Size/Square Feet> [y]<Year Built> [r]<Average Ratings>
+Displaying sorted by size.
+1. Totato House | Listing for Purchase
+$45.0 | 40.0 sqr feet | Built 932 | 2.4 ratings on average
+2. Motato House | Hotel
+$35.0 | 30.0 sqr feet | Built 2932 | 2.2 ratings on average
+3. Potato House | Rent Listing
+$25.0 | 20.0 sqr feet | Built 1932 | 3.0 ratings on average
+[1]<View Available Listings> [2]<Add Listing> [3]<Remove Listing> [4]<Select Listing> [5]<Logout> [6]<Quit>
+Sorting Options: [p]<Price> [s]<Size/Square Feet> [y]<Year Built> [r]<Average Ratings>
+Displaying sorted by year built.
+1. Motato House | Hotel
+$35.0 | 30.0 sqr feet | Built 2932 | 2.2 ratings on average
+2. Potato House | Rent Listing
+$25.0 | 20.0 sqr feet | Built 1932 | 3.0 ratings on average
+3. Totato House | Listing for Purchase
+$45.0 | 40.0 sqr feet | Built 932 | 2.4 ratings on average
+[1]<View Available Listings> [2]<Add Listing> [3]<Remove Listing> [4]<Select Listing> [5]<Logout> [6]<Quit>
+Sorting Options: [p]<Price> [s]<Size/Square Feet> [y]<Year Built> [r]<Average Ratings>
+Displaying sorted by average ratings.
+1. Potato House | Rent Listing
+$25.0 | 20.0 sqr feet | Built 1932 | 3.0 ratings on average
+2. Totato House | Listing for Purchase
+$45.0 | 40.0 sqr feet | Built 932 | 2.4 ratings on average
+3. Motato House | Hotel
+$35.0 | 30.0 sqr feet | Built 2932 | 2.2 ratings on average
+
+____________________________________________________________
+Removes listing
+
+[1]<View Available Listings> [2]<Add Listing> [3]<Remove Listing> [4]<Select Listing> [5]<Logout> [6]<Quit>
+1. Potato House | Rent Listing
+$25.0 | 20.0 sqr feet | Built 1932 | 3.0 ratings on average
+2. Totato House | Listing for Purchase
+$45.0 | 40.0 sqr feet | Built 932 | 2.4 ratings on average
+3. Motato House | Hotel
+$35.0 | 30.0 sqr feet | Built 2932 | 2.2 ratings on average
+Please enter listing to be removed: Successfully removed.
+
+
+
+__________________________________________________________
+Selecting as a Realtor and changing each field once
+
+[1]<View Available Listings> [2]<Add Listing> [3]<Remove Listing> [4]<Select Listing> [5]<Logout> [6]<Quit>
+Sorting Options: [p]<Price> [s]<Size/Square Feet> [y]<Year Built> [r]<Average Ratings>
+Displaying sorted by price.
+1. Totato House | Listing for Purchase
+$45.0 | 40.0 sqr feet | Built 932 | 2.4 ratings on average
+2. Motato House | Hotel
+$35.0 | 30.0 sqr feet | Built 2932 | 2.2 ratings on average
+Please choose listing index to select.
+Choose field to change: [n]<Name> [p]<Price> [s]<Square Feet/Size> [y]<Year Built>
+Listing Name: [1]<View Available Listings> [2]<Add Listing> [3]<Remove Listing> [4]<Select Listing> [5]<Logout> [6]<Quit>
+Sorting Options: [p]<Price> [s]<Size/Square Feet> [y]<Year Built> [r]<Average Ratings>
+Displaying sorted by size.
+1. Zotato House | Listing for Purchase
+$45.0 | 40.0 sqr feet | Built 932 | 2.4 ratings on average
+2. Motato House | Hotel
+$35.0 | 30.0 sqr feet | Built 2932 | 2.2 ratings on average
+Please choose listing index to select.
+Choose field to change: [n]<Name> [p]<Price> [s]<Square Feet/Size> [y]<Year Built>
+Price: [1]<View Available Listings> [2]<Add Listing> [3]<Remove Listing> [4]<Select Listing> [5]<Logout> [6]<Quit>
+Sorting Options: [p]<Price> [s]<Size/Square Feet> [y]<Year Built> [r]<Average Ratings>
+Displaying sorted by year built.
+1. Motato House | Hotel
+$35.0 | 30.0 sqr feet | Built 2932 | 2.2 ratings on average
+2. Zotato House | Listing for Purchase
+$55.0 | 40.0 sqr feet | Built 932 | 2.4 ratings on average
+Please choose listing index to select.
+Choose field to change: [n]<Name> [p]<Price> [s]<Square Feet/Size> [y]<Year Built>
+Size: [1]<View Available Listings> [2]<Add Listing> [3]<Remove Listing> [4]<Select Listing> [5]<Logout> [6]<Quit>
+Sorting Options: [p]<Price> [s]<Size/Square Feet> [y]<Year Built> [r]<Average Ratings>
+Displaying sorted by average ratings.
+1. Zotato House | Listing for Purchase
+$55.0 | 40.0 sqr feet | Built 932 | 2.4 ratings on average
+2. Motato House | Hotel
+$35.0 | 155.0 sqr feet | Built 2932 | 2.2 ratings on average
+Please choose listing index to select.
+Choose field to change: [n]<Name> [p]<Price> [s]<Square Feet/Size> [y]<Year Built>
+Year built:
+
+________________________________________________________________________
+Logs out once then comes back, enters a nonvalid index, throws a bunch of
+potential errors such as enter a string when should be an int, an int when it
+shouldn't
+
+[1]<View Available Listings> [2]<Add Listing> [3]<Remove Listing> [4]<Select Listing> [5]<Logout> [6]<Quit>
+[1]<Login As New Buyer> [2]<Login As New Realtor> [3]<Quit>
+[1]<View Available Listings> [2]<Add Listing> [3]<Remove Listing> [4]<Select Listing> [5]<Logout> [6]<Quit>
+[1]<View Available Listings> [2]<Add Listing> [3]<Remove Listing> [4]<Select Listing> [5]<Logout> [6]<Quit>
+Sorting Options: [p]<Price> [s]<Size/Square Feet> [y]<Year Built> [r]<Average Ratings>
+Not recognized. Displaying sorted by price.
+1. Zotato House | Listing for Purchase
+$55.0 | 40.0 sqr feet | Built 2000 | 2.4 ratings on average
+2. Motato House | Hotel
+$35.0 | 155.0 sqr feet | Built 2932 | 2.2 ratings on average
+[1]<View Available Listings> [2]<Add Listing> [3]<Remove Listing> [4]<Select Listing> [5]<Logout> [6]<Quit>
+Listing Name: Price: Size: Year built: Space separated ratings out of 5 (ex: 5 3 2 0 2): Lisitng type: [r]<Rent> [h]<Hotel> [p]<Purchase>: Not valid listing type
+[1]<View Available Listings> [2]<Add Listing> [3]<Remove Listing> [4]<Select Listing> [5]<Logout> [6]<Quit>
+1. Zotato House | Listing for Purchase
+$55.0 | 40.0 sqr feet | Built 2000 | 2.4 ratings on average
+2. Motato House | Hotel
+$35.0 | 155.0 sqr feet | Built 2932 | 2.2 ratings on average
+Please enter listing to be removed: Successfully removed.
+[1]<View Available Listings> [2]<Add Listing> [3]<Remove Listing> [4]<Select Listing> [5]<Logout> [6]<Quit>
+Sorting Options: [p]<Price> [s]<Size/Square Feet> [y]<Year Built> [r]<Average Ratings>
+Not recognized. Displaying sorted by price.
+1. Zotato House | Listing for Purchase
+$55.0 | 40.0 sqr feet | Built 2000 | 2.4 ratings on average
+Please choose listing index to select.
+Index not valid.
+[1]<View Available Listings> [2]<Add Listing> [3]<Remove Listing> [4]<Select Listing> [5]<Logout> [6]<Quit>
+[1]<Login As New Buyer> [2]<Login As New Realtor> [3]<Quit>
+[1]<View Available Listings> [2]<Add Listing> [3]<Remove Listing> [4]<Select Listing> [5]<Logout> [6]<Quit>

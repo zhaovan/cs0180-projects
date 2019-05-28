@@ -1,0 +1,95 @@
+_____________________________________________________________
+Login as a Realtor and creates the various types of listings
+possible
+
+[1]<Login As New Buyer> [2]<Login As New Realtor> [3]<Quit>
+[1]<View Available Listings> [2]<Add Listing> [3]<Remove Listing> [4]<Select Listing> [5]<Logout> [6]<Quit>
+Listing Name: Price: Size: Year built: Space separated ratings out of 5 (ex: 5 3 2 0 2): Lisitng type: [r]<Rent> [h]<Hotel> [p]<Purchase>: [1]<View Available Listings> [2]<Add Listing> [3]<Remove Listing> [4]<Select Listing> [5]<Logout> [6]<Quit>
+Listing Name: Price: Size: Year built: Space separated ratings out of 5 (ex: 5 3 2 0 2): Lisitng type: [r]<Rent> [h]<Hotel> [p]<Purchase>: [1]<View Available Listings> [2]<Add Listing> [3]<Remove Listing> [4]<Select Listing> [5]<Logout> [6]<Quit>
+Listing Name: Price: Size: Year built: Space separated ratings out of 5 (ex: 5 3 2 0 2): Lisitng type: [r]<Rent> [h]<Hotel> [p]<Purchase>: [1]<View Available Listings> [2]<Add Listing> [3]<Remove Listing> [4]<Select Listing> [5]<Logout> [6]<Quit>
+[1]<Login As New Buyer> [2]<Login As New Realtor> [3]<Quit>
+____________________________________________________
+Calls view listings and sort by all listings possible
+
+
+[1]<View Available Listings> [2]<Add Listing> [3]<Remove Listing> [4]<Select Listing> [5]<Logout> [6]<Quit>
+Sorting Options: [p]<Price> [s]<Size/Square Feet> [y]<Year Built>
+Displaying sorted by price.
+1. Totato House | Listing for Purchase
+$45.0 | 40.0 sqr feet | Built 932
+2. Motato House | Hotel
+$35.0 | 30.0 sqr feet | Built 2932
+3. Potato House | Rent Listing
+$25.0 | 20.0 sqr feet | Built 1932
+[1]<View Available Listings> [2]<Add Listing> [3]<Remove Listing> [4]<Select Listing> [5]<Logout> [6]<Quit>
+Sorting Options: [p]<Price> [s]<Size/Square Feet> [y]<Year Built>
+Displaying sorted by size.
+1. Totato House | Listing for Purchase
+$45.0 | 40.0 sqr feet | Built 932
+2. Motato House | Hotel
+$35.0 | 30.0 sqr feet | Built 2932
+3. Potato House | Rent Listing
+$25.0 | 20.0 sqr feet | Built 1932
+[1]<View Available Listings> [2]<Add Listing> [3]<Remove Listing> [4]<Select Listing> [5]<Logout> [6]<Quit>
+Sorting Options: [p]<Price> [s]<Size/Square Feet> [y]<Year Built>
+Displaying sorted by year built.
+1. Motato House | Hotel
+$35.0 | 30.0 sqr feet | Built 2932
+2. Potato House | Rent Listing
+$25.0 | 20.0 sqr feet | Built 1932
+3. Totato House | Listing for Purchase
+$45.0 | 40.0 sqr feet | Built 932
+
+________________________________________________________________
+Calls the add and remove functions which returns an error message
+
+[1]<View Available Listings> [2]<Add Listing> [3]<Remove Listing> [4]<Select Listing> [5]<Logout> [6]<Quit>
+Sorry, only Realtors can add listings to the Portal.
+[1]<View Available Listings> [2]<Add Listing> [3]<Remove Listing> [4]<Select Listing> [5]<Logout> [6]<Quit>
+Sorry, only Realtors can remove listings from the Portal.
+
+_________________________________________________________________
+Selects a listing and tries to purchase, double book one location,
+and book at the rent. The test then quits
+
+
+[1]<View Available Listings> [2]<Add Listing> [3]<Remove Listing> [4]<Select Listing> [5]<Logout> [6]<Quit>
+Sorting Options: [p]<Price> [s]<Size/Square Feet> [y]<Year Built>
+Displaying sorted by price.
+1. Totato House | Listing for Purchase
+$45.0 | 40.0 sqr feet | Built 932
+2. Motato House | Hotel
+$35.0 | 30.0 sqr feet | Built 2932
+3. Potato House | Rent Listing
+$25.0 | 20.0 sqr feet | Built 1932
+Please choose listing index to select.
+Purchase complete!
+[1]<View Available Listings> [2]<Add Listing> [3]<Remove Listing> [4]<Select Listing> [5]<Logout> [6]<Quit>
+Sorting Options: [p]<Price> [s]<Size/Square Feet> [y]<Year Built>
+Displaying sorted by year built.
+1. Motato House | Hotel
+$35.0 | 30.0 sqr feet | Built 2932
+2. Potato House | Rent Listing
+$25.0 | 20.0 sqr feet | Built 1932
+Please choose listing index to select.
+Please specify dates you want to book your stay in the format MM-DD-YYYY: Your listing is reserved for Dec 12, 1212
+[1]<View Available Listings> [2]<Add Listing> [3]<Remove Listing> [4]<Select Listing> [5]<Logout> [6]<Quit>
+Sorting Options: [p]<Price> [s]<Size/Square Feet> [y]<Year Built>
+Displaying sorted by year built.
+1. Motato House | Hotel
+$35.0 | 30.0 sqr feet | Built 2932
+2. Potato House | Rent Listing
+$25.0 | 20.0 sqr feet | Built 1932
+Please choose listing index to select.
+Please specify dates you want to book your stay in the format MM-DD-YYYY: Sorry, your listing could not be reserved for days: Dec 12, 1212. Operation voided.
+[1]<View Available Listings> [2]<Add Listing> [3]<Remove Listing> [4]<Select Listing> [5]<Logout> [6]<Quit>
+Sorting Options: [p]<Price> [s]<Size/Square Feet> [y]<Year Built>
+Displaying sorted by size.
+1. Motato House | Hotel
+$35.0 | 30.0 sqr feet | Built 2932
+2. Potato House | Rent Listing
+$25.0 | 20.0 sqr feet | Built 1932
+Please choose listing index to select.
+Please specify dates you want to book your stay in the format MM-DD-YYYY: Your listing is reserved for Jul 8, 1990
+[1]<View Available Listings> [2]<Add Listing> [3]<Remove Listing> [4]<Select Listing> [5]<Logout> [6]<Quit>
+[1]<Login As New Buyer> [2]<Login As New Realtor> [3]<Quit>
