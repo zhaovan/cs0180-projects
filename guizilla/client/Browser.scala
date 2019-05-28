@@ -20,7 +20,6 @@ import guizilla.src._
  */
 class Browser() {
   val standardOptions = "Action (1) Back, (2) New URL, (3) Quit:"
-
   var userInput = 0
   var reader: BufferedReader = new BufferedReader(new InputStreamReader(System.in));
   var pagesCacheList: List[ClientPage] = List[ClientPage]()
@@ -39,6 +38,7 @@ class Browser() {
     val iStream = socket.getInputStream
     val oStream = socket.getOutputStream
     try {
+      val socket = new Socket(currentPage.host, port)
       val bRead = new BufferedReader(new InputStreamReader(iStream))
       val bWrite = new BufferedWriter(new OutputStreamWriter(oStream))
       bWrite.write(req)
@@ -46,17 +46,20 @@ class Browser() {
       socket.shutdownOutput()
       println("\n" + "Connecting to " + currentPage.host + ":" + port)
       var line: String = bRead.readLine()
-      assert(line == "HTTP/1.0 200 OK")
-      println("Connected")
-      line = bRead.readLine()
-      println(line)
-      bRead.readLine()
-      bRead.readLine()
-      bRead.readLine()
-      currentPage.HTMLEleLst = getHTMLElementList(bRead)
+      if (line == "HTTP/1.0 200 OK") {
+        println("Connected")
+        line = bRead.readLine()
+        println(line)
+        bRead.readLine()
+        bRead.readLine()
+        bRead.readLine()
+        currentPage.HTMLEleLst = getHTMLElementList(bRead)
+      }
       println("Parsing page...")
       System.out.flush()
       socket.shutdownInput()
+    } catch {
+      case rte: RuntimeException => Unit
     } finally {
       socket.close()
     }
@@ -73,6 +76,7 @@ class Browser() {
   def postRequest(form: Form): String = {
     val path = form.url
     var encStr = ""
+    form.fillLst()
     for (field <- form.lstTextUI) {
       encStr += URLEncoder.encode(field.name, "UTF-8")
       encStr += "="
@@ -94,58 +98,9 @@ class Browser() {
    * @returns the string representing the get request
    */
   def formatGetReq(path: String): String = {
-    "GET " + path + " HTTP/1.0\r\n" + "\n" +
+    "GET " + path + " HTTP/1.0\r\n" +
       "Connection: close\r\n" +
       "User-Agent: SparkZilla/1.0\r\n" + "\n" + "\r\n"
-  }
-
-  /**
-   * A function that gets a integer input from the user
-   * and returns the Integer
-   *
-   * @returns - the integer that we want to use in the interface
-   */
-  private def getIntInput(): Int = {
-    try {
-      var line = reader.readLine()
-      if (line == null) {
-        println("Please input a valid number")
-        getIntInput()
-        // Rerender the current page
-      }
-      return line.toInt
-    } catch {
-      case e: (IOException) =>
-        println("Please input a valid number")
-        loadMostRecentCached()
-      case nfe: (NumberFormatException) =>
-        println("Please input a valid number")
-        loadMostRecentCached()
-    }
-    0
-  }
-
-  /**
-   * A function that gets a string input from the user
-   * and returns it
-   *
-   * @returns the string input
-   */
-  def getStringInput(): String = {
-    try {
-      var line = reader.readLine()
-      if (line == null) {
-        println("Invalid URL")
-        getIntInput()
-        loadMostRecentCached()
-      }
-      return line
-    } catch {
-      case e: (IOException) =>
-        println("Please input a valid string")
-        loadMostRecentCached()
-    }
-    ""
   }
 
   /**
@@ -188,22 +143,6 @@ class Browser() {
   def renderPage() {
     println("Rendering Page...")
     println("-------------" + "\n")
-    var numClickable = 3
-    for (el <- currentPage.HTMLEleLst) {
-      var elements = el.render(numClickable)
-      if (elements != null || !elements.isEmpty) {
-        for (clickableThing <- elements.filter(x => x != null)) {
-          currentPage.actionArrayL.add(clickableThing)
-          numClickable += 1
-        }
-      }
-    }
-    println("-------------")
-    if (numClickable != 3) {
-      println(standardOptions + " (4 - " + numClickable + ") Page Elements:")
-    } else {
-      println(standardOptions)
-    }
   }
 
   /**
@@ -224,47 +163,7 @@ class Browser() {
  * It checks all of the user input and displays the corresponding inputs as such.
  *
  */
-object Browser extends App {
+object Browser {
   val browser: Browser = new Browser()
-  browser.displayHomePage()
-  browser.userInput = browser.getIntInput()
-  while (browser.userInput != 3) {
-    if (browser.userInput > 3) {
-      try {
-        browser.currentPage.actionArrayL.get(browser.userInput - 4).click()
-      } catch {
-        case ioob: (IndexOutOfBoundsException) => println("Invalid code")
-      }
-    } else if (browser.userInput > 0) {
-      browser.userInput match {
-        case 1 =>
-          if (browser.pagesCacheList.isEmpty) {
-            println("No pages to go back to")
-          }
-          browser.loadMostRecentCached()
-        case 2 =>
-          print("Enter URL:")
-          val url = browser.getStringInput()
-          browser.currentPage.host = url.replaceAll("""http:(//)""", "").takeWhile(x => x != '/')
-          val path = url.replaceAll("""http:(//)\w*""", "")
-          try {
-            browser.request(path, browser.formatGetReq(path))
-            browser.renderPage()
-          } catch {
-            case io: IOException =>
-              println("Invalid URL")
-              browser.loadMostRecentCached()
-            case npe: NullPointerException =>
-              println("Invalid URL")
-              browser.loadMostRecentCached()
-          }
-      }
-    } else {
-      println("Please enter valid input")
-      browser.loadMostRecentCached()
-    }
-    browser.userInput = browser.getIntInput()
-  }
-  println("Goodbye!")
-  System.exit(0)
+
 }

@@ -6,6 +6,8 @@ import javafx.scene.Parent
 import javafx.scene.Scene
 import javafx.stage.Stage
 import javafx.scene.layout.GridPane
+import javafx.scene.control.Label
+import javafx.scene.layout.VBox
 
 class RunApplication extends Application {
   override def start(stage: Stage) {
@@ -25,11 +27,13 @@ class RunApplication extends Application {
     stage.setTitle("Guizilla")
     stage.setScene(new Scene(root, 1000, 700))
     stage.show()
-
-    // TODO: render home page
+    controller.renderHomePage()
   }
 }
 
+/**
+ * An object to run the application
+ */
 object RunApplication extends App {
   javafx.application.Application.launch(classOf[RunApplication])
 }

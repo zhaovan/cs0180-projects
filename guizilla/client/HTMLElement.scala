@@ -8,13 +8,12 @@ import javafx.scene.layout.VBox
 abstract class HTMLElement {
   
   /**
-   * A method render that renders teh elements of the page
+   * A method render that renders the elements of the page
    * 
-   * @param i - Int for the number of clickable items
-   * @return a list of clickable items
+   * @param box - the VBox
+   * @param b - The Browser
    */
-  // Maybe return a list of clickable still?
-  def render(box: VBox)
+  def render(box: VBox, b: GUIBrowser)
   
 }
 

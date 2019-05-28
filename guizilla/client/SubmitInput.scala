@@ -10,39 +10,41 @@ import javafx.scene.control.Button
  *
  * @param form - The form that contains this submit button
  */
-case class SubmitInput(form: Form) extends HTMLElement with Clickable {
+case class SubmitInput(form: Form) extends HTMLElement {
   val link = form.url
 
   /**
-   * A string that just prints the submit button
+   * A method render that renders the submit button and handles
+   * the click parameter
+   * 
+   * @param box - the VBox
+   * @param b - The Browser
    */
-  override def render(box: VBox) = {
-    val b: Button = new Button("Submit!")
+  override def render(box: VBox, b : GUIBrowser) = {
+    val button: Button = new Button("Submit!")
     val event = new EventHandler[ActionEvent]() {
       override def handle(a: ActionEvent) {
-        Browser.browser.archivePage()
-        val url = Browser.browser.currentPage.host
-        Browser.browser.currentPage = new ClientPage
-        Browser.browser.currentPage.host = url
-        Browser.browser.request(link, Browser.browser.postRequest(form))
-        Browser.browser.renderPage()
+        click(b)
       }
     }
-    b.setOnAction(event)
-    box.getChildren.add(b)
+    button.setOnAction(event)
+    box.getChildren.add(button)
   }
 
   /**
    * The method click that archives the current page,
    * gets the new page, sends the request to the new page
    * and then renders the new page. This posts instead of doing get
+   * 
+   * @param b - passes the GUIBrowser
    */
-  override def click() = {
-        Browser.browser.archivePage()
-        val url = Browser.browser.currentPage.host
-        Browser.browser.currentPage = new ClientPage
-        Browser.browser.currentPage.host = url
-        Browser.browser.request(link, Browser.browser.postRequest(form))
-        Browser.browser.renderPage()
+  def click(b : GUIBrowser) = {
+    b.archivePage()
+    val url = b.currentPage.host
+    b.currentPage = new ClientPage
+    b.currentPage.host = url
+    b.request(link, b.postRequest(form))
+    b.renderPage()
+    b.fillURLBar(link)
   }
 }

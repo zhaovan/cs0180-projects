@@ -1,7 +1,6 @@
 package guizilla.sol.client
 
 import java.util.ArrayList
-import guizilla.sol.client.Clickable
 import guizilla.sol.client.HTMLElement
 
 /**
@@ -11,6 +10,5 @@ import guizilla.sol.client.HTMLElement
 class ClientPage {
   var host: String = ""
   var HTMLEleLst: List[HTMLElement] = List[HTMLElement]()
-  val actionArrayL: ArrayList[Clickable] = new ArrayList[Clickable]
   var currentFormData: String = ""
 }

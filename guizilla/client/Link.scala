@@ -5,6 +5,8 @@ import javafx.scene.control.Label
 import javafx.event.ActionEvent
 import javafx.event.EventHandler
 import javafx.scene.control.Button
+import javafx.scene.control.Hyperlink
+import javafx.scene.input.MouseEvent
 
 /**
  * A link element of an HTML page
@@ -12,45 +14,41 @@ import javafx.scene.control.Button
  * @param href - The URL of the link
  * @param text - The text to be rendered
  */
-case class Link(href: String, text: PageText) extends HTMLElement with Clickable {
+case class Link(href: String, text: PageText) extends HTMLElement {
 
   /**
-   * An overriden method toString that outputs the text of the page
+   * A method render that renders the elements of the page
+   * 
+   * @param box - the VBox
+   * @param b - The Browser
    */
-  //  override def toString = {
-  //    text.text
-  //  }
-
-  override def render(box: VBox) = {
-//    val label = new Label
-//    label.setText(text.text)
-//    box.getChildren.add(label)
-    val b: Button = new Button(text.text)
-    val event = new EventHandler[ActionEvent]() {
-      override def handle(a: ActionEvent) {
-        Browser.browser.archivePage()
-        val url = Browser.browser.currentPage.host
-        Browser.browser.currentPage = new ClientPage
-        Browser.browser.currentPage.host = url
-        Browser.browser.request(href, Browser.browser.formatGetReq(href))
-        Browser.browser.renderPage()
+  override def render(box: VBox, b: GUIBrowser) = {
+    val link = new Hyperlink()
+    link.setText(text.text)
+    val event = new EventHandler[MouseEvent]() {
+      override def handle(a: MouseEvent) = {
+        click(b)
       }
     }
-    b.setOnAction(event)
-    box.getChildren.add(b)
+    link.setOnMouseClicked(event)
+    box.getChildren.add(link)
   }
 
   /**
    * The method click that archives the current page,
    * gets the new page, sends the request to the new page
    * and then renders the new page
+   * 
+   * @param b - the guiBrowser that we pass into the method
    */
-  override def click() = {
-    //    Browser.browser.archivePage()
-    //    val url = Browser.browser.currentPage.host
-    //    Browser.browser.currentPage = new ClientPage
-    //    Browser.browser.currentPage.host = url
-    //    Browser.browser.request(href, Browser.browser.formatGetReq(href))
-    //    Browser.browser.renderPage()
+  def click(b: GUIBrowser) = {
+    b.archivePage()
+    val url = b.currentPage.host
+    b.currentPage = new ClientPage
+    b.currentPage.host = url
+    println(url)
+    b.request(href, b.formatGetReq(href))
+    b.renderPage()
+    b.fillURLBar(href)
   }
 }

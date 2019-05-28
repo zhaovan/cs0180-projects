@@ -12,6 +12,21 @@ case class Form(val url: String, private var elements: List[HTMLElement]) extend
   var lstTextUI: List[TextInput] = List[TextInput]()
   
   /**
+   * A function called fill list that gets a list of 
+   * all the textinput elements and stores it in a 
+   * list
+   */
+  def fillLst() = {
+  lstTextUI = elements.filter {
+      x =>
+        x match {
+          case z: TextInput => true
+          case _            => false
+        }
+    }.asInstanceOf[List[TextInput]]
+  }
+    
+  /**
    * A form that takes in a set of elements and sets the elements in hte
    */
   def setElements(lst: List[HTMLElement]) = {
@@ -23,7 +38,10 @@ case class Form(val url: String, private var elements: List[HTMLElement]) extend
    * and counts the number of clickable elements. it then keeps track of all 
    * the text inputs and stores that as an item in the list
    */
-  override def render(box: VBox) = {
+  override def render(box: VBox, b: GUIBrowser) = {
+    for (ele <- elements){
+      ele.render(box, b)
+    }
 //    var locCount = 0
 //    var locLst = List[Clickable]()
 //    for (ele <- elements) {
