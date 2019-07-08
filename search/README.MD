@@ -24,8 +24,6 @@ technical, aspects of PageRank.
 
 Human-nature tends to succumb to virality. When people see an interesting article, they tend to post on social media to share with others. So, while no ill-intent is involved among the people that do share articles (unknowingly inaccurate ones), they end up linking to that article, and as such promotes the inaccurate article in the searches.
 
-People also tend to be
-
 
 --------------------------------------------------------------------------
 
